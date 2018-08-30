@@ -41,14 +41,8 @@ namespace NumberGuesser
                     // Make sure its number
                     if (!int.TryParse(input, out guess))
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-
-                        // Write out app info
-                        Console.WriteLine("Please enter an actual number");
-
-                        // Reset console text color
-                        Console.ResetColor();
+                        // Print error message
+                        PrintColorMessage(ConsoleColor.Red, "Please use an actual number");
 
                         // Keep going
                         continue;
@@ -60,25 +54,13 @@ namespace NumberGuesser
                     // Match guess to correct number
                     if (guess != correctNumber)
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-
-                        // Write out app info
-                        Console.WriteLine("Wrong number, please try again");
-
-                        // Reset console text color
-                        Console.ResetColor();
+                        // Set error message
+                        PrintColorMessage(ConsoleColor.Red, "Wrong number, please try again");
                     }
                 }
 
-                // Change text color
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                // Tell user its right number
-                Console.WriteLine("Wrong number, please try again");
-
-                // Reset console text color
-                Console.ResetColor();
+                // Set success message
+                PrintColorMessage(ConsoleColor.Yellow, "Correct!! you guess it");
 
                 // Ask for play again
                 Console.WriteLine("Play Again? [Y or N]");
@@ -124,6 +106,18 @@ namespace NumberGuesser
             string inputName = Console.ReadLine();
 
             Console.WriteLine("Hello {0}, let's play a game", inputName);
+        }
+
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            // Change text color
+            Console.ForegroundColor = color;
+
+            // Write out app info
+            Console.WriteLine(message);
+
+            // Reset console text color
+            Console.ResetColor();
         }
     }
 }
