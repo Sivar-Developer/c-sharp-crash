@@ -10,31 +10,11 @@ namespace NumberGuesser
     {
         static void Main(string[] args)
         {
-            // string name = "Sivar Sarkawt";
-            // 
-            // Console.WriteLine("Hello "+ name);
+            // Call function to get app info
+            GetAppInfo();
 
-            // Set app vars
-            string appName = "NumberGuesser";
-            string appVersion = "1.0.0";
-            string appAuthor = "Sivar Sarkawt";
-
-            // Change text color
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-            // Write out app info
-            Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
-
-            // Reset console text color
-            Console.ResetColor();
-
-            // Ask users name
-            Console.WriteLine("What is your name?");
-
-            // Get user input
-            string inputName = Console.ReadLine();
-
-            Console.WriteLine("Hello {0}, let's play a game", inputName);
+            // Ask for user name and greet
+            GreetUser();
 
             while (true)
             {
@@ -116,6 +96,34 @@ namespace NumberGuesser
                 }
 
             }
+        }
+
+        static void GetAppInfo()
+        {
+            // Set app vars
+            string appName = "NumberGuesser";
+            string appVersion = "1.0.0";
+            string appAuthor = "Sivar Sarkawt";
+
+            // Change text color
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            // Write out app info
+            Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
+
+            // Reset console text color
+            Console.ResetColor();
+        }
+
+        static void GreetUser()
+        {
+            // Ask users name
+            Console.WriteLine("What is your name?");
+
+            // Get user input
+            string inputName = Console.ReadLine();
+
+            Console.WriteLine("Hello {0}, let's play a game", inputName);
         }
     }
 }
